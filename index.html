@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie, Creators - сайт для просмотра информации о любом фильме или сериале</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter&family=Open+Sans:wght@300&family=Oswald&family=Roboto+Condensed:wght@300&family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Oswald&family=Roboto+Condensed:wght@300&family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Oswald&family=Roboto+Condensed:wght@300&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/web.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href=""><img src="images/Movie, the creatores (1) (1).png" alt="" height="62px" style="margin-left: -20px;"></a>
+        </div>
+        <div class="links">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAABC0lEQVR4nO3ZLU4DURSG4QsGURwCgcGgWAAbwFGJLgaw7KDB8bMDlkBtCQmuqhuoAFWLIhW4Js1DRkwCCRAEafol91nBvGJmzj23lKqqqmpZsIVbPOIG2yUFOnjx1RtOSgL0/OwJu2WVoe9377jAellFuPQ3Y+yX4IDGHNfYKKEBrQkOSnBAY4E7bKYGtKY4TA5oDZofYnJA4xXHyQGtIXaSAxoznGMtNaA1wl5yQDuOnCUHtLrpAYP0gPv0gKPkl/j03x9+SQGj1M/oLPlHNkwdJaKHuUHqOD1NPdAsko+Uk9RD/Tx5rTJe1cVWP3212Etf7nbwHLte/3TB0VxsPOAq6oKjqqqqKt/4AKkeTgOd63iAAAAAAElFTkSuQmCC" style=" height: 23.5px; margin-bottom: -5px;">
+            <a href="#trail">Трейлер</a>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAABAElEQVR4nO3ZvU3DYBhF4St+RMMqtHRMgCnZgh0oiCgoWQMxAQoUNGyAoGIFcFp0kCVX8CVOKu4b3ad0Yx9d24UtRcRGgDPgCVjgZwE8At1UxDV1zFYtUU3XChlup2rmrZCeer5aISUpIWaURcwoi5hRFjGjLGJGWcSMsogZZREzyiJmlEXMKIuY0TYv0lPPZytk+Mq9FZ9MO+o5/RMyxsyo46oZ8WuZuekz04/X1l5iXcD7Gie7kDvgdSLiAziQM2Bv+B8xEXIud8DJRMSt3AG7wMuKiHtgX86AQ+BuScA3cAPsyB3wvCRiOH6sKoCH8Uf92/gOvwSO/vu6IkIb+QH2JzTKF7agcwAAAABJRU5ErkJggg==" style=" height: 23.5px; margin-bottom: -5px;">
+            <a href="#like">Отзывы</a>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAADFklEQVR4nO2Zy29NURTGj8YrMVFaj9ImIkGMNMKASMRAaTGhQiQMmBhIRdAaNEGamqgBHeAP6MA7EkYUMyIh4hFGEiRKJbSot58s97vJTtN7uk9v7z17cL/kDm6yfnvvL/ucvdZeJ4pKKqmkEQlYB9wEvpC+PmstDUlNtBGujibZCdMP4CBQFaUsoApo1ppM9T5Qt4Kbo8BExozphk+wPY+mmVFgAmZobf0+wf8VBSp815evEaAS2AtcB94A33XyPQc6gZqRjl0UI8AY4IDHcd0LrAHGhWrkrNDfwGVgE7AQmKTfYuCCY+g10BiUEWC7sE9AXUycGWoHHij+L7A5JCMvhO1KwBwS0wNMSN0IsEDIO6As4Tv1RGzOXSymkR1CunwZh+0Q2xKCkX1COnwZh90j9lQIRpqFtPkyDtsUkpGdQk77Mg57TGxrCEbqhFzzZRz2itgtIRipyJ5avoy4MuCD2OoQjIy1alTYnARcrZi3vkyhjWwV8hiYldDIe7GLQjDSJOSkL+Ow58U2hmBkpZBHSUp0YBrwSmxtCEbKgLvC+qz08GAmqmA03fGdq6BGxEwGXgqd5xG/RLF22ZoSjBETcEbo4ci/3XRiuNg0jCwX+tGaBDFx0538sSw4IybgqvCnUQ4571N3NAJRJCPVwr/GxNgt0jQ3ZCOVwr/FxGSTYGXIRmYL742JsRYRSaqANIxkS/pnHvf7bcEZIZPgWp0m8+6YWOt9mQZ0KRufuhGgRpcja7plddyjEuh0MnuP8opXKT+qRpSZL6oZl9V9YLXPYjTGKuChw9tYl4ClBTdi5YfdBJ3JfwLngBW+BnIk0i7nsURzzC+IESu19Vyji1R7XAZPKmX8NueSNjBUFzIvI8B65zGy7a8YLQNDzD/V6RH/ATYMt75cA/W7CQsod5JYu0+Znq/IdCGzhaXNXe7cYUx9PoPY11PT/kHH5e0kLdF8ReZ0uzVoLfZN0/vTW4OCf+mcv6f/G4thwJXNqbmt0GzRmkxrIx/ZJ2DC1REvE46ZettC551JU/1ai99OlFRSSdFg/QNNuQdCi30r+AAAAABJRU5ErkJggg==" style=" height: 23.5px; margin-bottom: -5px;">
+            <a href="#actor">Актеры</a>
+        </div>
+    </header>
+    <main><br><br>
+        <div class="afisha">
+            <div class="descrip">
+                <img src="images/Rectangle 2.png" alt="" style="float: left; height: 400px;">
+                <h2>Аркейн(2021) 16+</h2>
+                <p>О сериале:</p>
+                <p>Жанр : мультфильм, фантастика, фэнтези, боевик, драма.</p>
+                <p>Режиссер : Паскаль Шаррю, Арно Делорд.</p>
+                <p>Время : 42 мин</p>
+                <p>Релиз : 6 ноября, 2021 год</p>
+                <p>Слоган : «Every legend has a beginning»</p>
+                <p>Страна : США, Франция</p>
+                <p>Платформа : Netflix (2 сезона)</p>
+
+            </div>
+
+            <div class="epis">
+                <a href="">
+                    <h3>Список эпизодов <span class="p1">10</span> > :</h3>
+                </a>
+                <p class="p1">9 эпизодов в 1 сезоне</p><br>
+                <div class="epis2">
+                    <div>
+                        <a href="">
+                            <p style="color: #2C0E5E;">9 эпизод</p>
+                        </a>
+                        <p style="color: #2C0E5E;"> 20.11.2021</p><br>
+                        <a href="">
+                            <p>8 эпизод</p>
+                        </a>
+                        <p class="data">20.11.2021</p><br>
+                        <a href="">
+                            <p>7 эпизод</p>
+                        </a>
+                        <p class="data">20.11.2021</p><br>
+                        <a href="">
+                            <p>6 эпизод</p>
+                        </a>
+                        <p class="data">13.11.2021</p><br>
+                        <a href="">
+                            <p>5 эпизод</p>
+                        </a>
+                        <p class="data">13.11.2021</p><br>
+                        <a href="">
+                            <p>4 эпизод</p>
+                        </a>
+                        <p class="data">13.11.2021</p><br>
+                        <a href="">
+                            <p>3 эпизод</p>
+                        </a>
+                        <p class="data">6.11.2021</p><br>
+                        <a href="">
+                            <p>2 эпизод</p>
+                        </a>
+                        <p class="data">6.11.2021</p><br>
+                        <a href="">
+                            <p id="actor">1 эпизод</p>
+                        </a>
+                        <p class="data">6.11.2021</p><br>
+                    </div>
+                    <div class="nazv">
+                        <p style="color: #2C0E5E;">The monster you created</p>
+                        <p>ㅤ </p><br>
+                        <p>Oil and water</p>
+                        <p class="data"> ㅤ</p><br>
+                        <p>The boy Savior</p>
+                        <p class="data"> ㅤ</p><br>
+                        <p>When these walls come..</p>
+                        <p class="data"> ㅤ</p><br>
+                        <p>Everybody wants to be my enemy</p>
+                        <p class="data">ㅤ </p><br>
+                        <p>Happy progress day!</p>
+                        <p class="data">ㅤ </p><br>
+                        <p>The base violence necessary..</p>
+                        <p class="data">ㅤ </p><br>
+                        <p>Some mysteries are better..</p>
+                        <p class="data">ㅤ </p><br>
+                        <p>Welcome to the playground</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 style="margin-top: -390px; font-weight: lighter;">Оценка: <span style="color: #AE7634;">8.8</span></h2>
+        <p style="margin-top: 15px; font-weight: lighter; color: #2C0E5E;">125 243 оценок</p>
+        <br><br><br><br><br><br><br><br>
+
+        <a href="">
+            <h2 style="font-weight: 550; margin-top: 100px;">Актеры ></h2>
+        </a>
+        <div class="actXhist">
+            <div class="actors">
+
+                <div><a href=""><img src="images/Rectangle 5.png" alt=""></a>
+                    <h4>
+                        <li><a href="">Хейли Стайнфелд</a></li>
+                    </h4>
+                    <p>Vi</p>
+                    <a href=""><img src="images/Rectangle 10.png" alt=""></a>
+                    <h4>
+                        <li><a href="">Кевин алехандро</a></li>
+                    </h4>
+                    <p>Jayce</p>
+                </div>
+                <div><a href=""><img src="images/Rectangle 9.png" alt=""></a>
+                    <h4>
+                        <li><a href="">Джейсон Спайсэк</a></li>
+                    </h4>
+                    <p>Silco</p>
+                    <a href=""><img src="images/Rectangle 8.png" alt=""></a>
+                    <h4>
+                        <li><a href="">Токс Олагундойе</a></li>
+                    </h4>
+                    <p>Mel Medarda</p>
+                </div>
+                <div><a href=""><img src="images/Rectangle 7.png" alt=""></a>
+                    <h4>
+                        <li><a href="">Джейби Бланк</a></li>
+                    </h4>
+                    <p>Vander</p>
+                    <a href=""><img src="images/Rectangle 6.png" alt=""></a>
+                    <h4>
+                        <li><a href="">Гарри Ллойд</a></li>
+                    </h4>
+                    <p>Viktor</p>
+                </div>
+                <div><a href=""><img src="images/Rectangle 11.png" alt=""></a>
+                    <h4>
+                        <li><a href="">Реми Хай</a></li>
+                    </h4>
+                    <p>Marcus</p>
+
+                    <a href=""><img src="images/Rectangle 12.png" alt=""></a>
+                    <h4>
+                        <li><a href="">Миа Синклер Дженнесс</a></li>
+                    </h4>
+                    <p>Powder</p>
+
+
+                </div>
+                <div><a href="">
+                        <p style="color: #2C0E5E;" id="trail">65 актеров</p>
+                    </a></div>
+
+
+            </div>
+
+            <div class="hist">
+                <h2 style="font-weight: 550; margin-top: 100px;">Предыстория ></h2><br>
+                <h3 style="font-weight: 500;">История разворачивается в утопическом краю Пилтовер
+                    и жестоком подземном мире Заун и рассказывает
+                    о становлении двух легендарных чемпионов Лиги
+                    и о той силе, что разведёт их по разные стороны баррикад.</h3><br>
+                <h2 style="font-weight: 550; ">Рейтинг кинокритиков в России ></h2><br>
+                <div class="box1">
+                    <h3 style="color: #326245;">12</h3>
+                </div>
+                <div class="box2">
+                    <h3 style="color: #552121;">3</h3>
+                </div><br>
+                <h2 style="font-weight: 550;"><span style="color: #183E18;">80%</span> рейтинг</h2>
+            </div>
+        </div>
+        <div class="trXfact">
+            <div>
+                <h2 style="font-weight: 400;">Трейлер ></h2>
+                <iframe width="507" height="290" src="https://www.youtube.com/embed/DNwDWXTDukY?si=-VBIc9VQxM-V3LVw"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+                <p>Трейлер(сезон 1; русские субтитры)</p>
+                <p style="color: #534E4E;" id="like">1 ноября 2021 год</p>
+            </div>
+            <div class="facts">
+                <h2 style="font-weight: 550; margin-top: 100px;">Факты о сериале ></h2><br>
+                <h3 style="font-weight: 500; color: #534E4E;">
+                    <li>В 2013 году студия Fortiche Productions создала
+                        музыкальный клип Get Jinxed для компании Riot Games.
+                        Там уже фигурировали Джинкс, город Пилтовер,
+                        а также стиль анимации, который виден в мультсериале.
+                        Получившееся произвело на Riot Games такое впечатление,
+                        что там попросили студию Fortiche Productions создать
+                        анимационный сериал, на работу над которым ушло несколько
+                        лет. По выходе первого сезона было объявлено, что будет и
+                        второй, и что на его создание времени уйдёт меньше.</li>
+                </h3>
+            </div>
+        </div>
+        <div class="likes">
+            <h2>Отзывы зрителей ></h2>
+            <a href="">
+                <div class="box3">
+                    <p>Оставить отзыв</p>
+                </div>
+            </a><br><br>
+
+            <div class="box1l">
+                <div class="anonim">
+                    <div class="box1l1">
+                        <ul>
+                            <li><img src="images/Ellipse 2.png" alt="" width="49" height="44"
+                                    style="border-radius: 100%;"></li>
+                            <li style="font-size: 14px; margin-right: 15px;">Аноним
+                                <p style="font-size: 11px; color: #534E4E; margin-right: 15px;">32 отзыва</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="box1l2">
+                        <ul>
+                            <li>
+                                <p style="font-size: 11px; color: #534E4E;">8 октября 2022 год</p>
+                                <p style="font-size: 11px; color: #534E4E;">19:20</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <hr style="width: 754px; color: #534E4E;">
+                <div class="like1">
+                    <h3>Лучший анимационный сериалл, который я смотрел</h3>
+                    <p style="font-size: 16px;">Видеоряд наполнен какой-то затягивающей магией, если первые 3 серии
+                        можно было еще смотреть частями,
+                        то последующие три это просто бесконечный поток невероятно прекрасного визуала со всех
+                        графических и
+                        художественных точек зрения, впереди еще 3, но я точно знаю, что Аркейн покорил мое сердце на 10
+                        из 10. Удивительно то,
+                        как проработаны детали, как остро и объемно созданы персонажи и то, как они меняются с течением
+                        времени.
+                        Некоторые сильно, некоторые чуть-чуть, но уже только по этим деталям в лицах ощущаешь как
+                        протекала
+                        их жизнь, там, далеко за пределами наших взглядов. В некоторые моменты мимика прорисована
+                        настолько
+                        тонко, что даже сложно припомнить актеров, у которых получилось бы убедительнее отыграть глубину
+                        той или
+                        иной эмоции.</p></div>
+                    <div class="rate1">
+                        <a href="">
+                            <div class="box4" style="margin-left: 30px;">
+                                <p style="font-size: 13px;">Оценить отзыв</p>
+                            </div>
+                        </a>
+                        <a href="">
+                            <div class="box5" style="margin-left: 320px;">
+                                <span><img src="images/Rectangle 20.png" alt="" style="float: left; border-radius: 70px; width: 44px; height: 30px; margin-top: -3px;"></span>
+                                <span><p style="font-size: 10px;">Полезно</p></span>
+                                <p style="font-size: 10px; color: #534E4E; margin-top: -7px;">698</p>
+                            </div>
+                        </a>
+                        <a href="">
+                            <div class="box5"  style="margin-left: 80px;">
+                                <img src="images/Rectangle 21.png" alt="" style="float: left; border-radius: 100%; width: 42px; height: 37px; margin-top: 7px;">
+                                <p style="font-size: 10px;">Нет</p>
+                                <p style="font-size: 10px; color: #534E4E; margin-top: -7px;">21</p>
+                            </div>
+                        </a>
+                    </div>
+                
+            </div>
+
+            <br><br><br>
+
+            <div class="box2l">
+                <div class="anonim">
+                    <div class="box1l1">
+                        <ul>
+                            <li><img src="images/Ellipse 3.png" alt="" width="49" height="44"
+                                    style="border-radius: 100%;"></li>
+                            <li style="font-size: 14px; margin-right: 15px;">AndreyVBNM
+                                <p style="font-size: 11px; color: #534E4E; margin-right: 15px;">9 отзывов</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="box1l2">
+                        <ul>
+                            <li>
+                                <p style="font-size: 11px; color: #534E4E;">24 декабря 2021 год</p>
+                                <p style="font-size: 11px; color: #534E4E;">8:40</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <hr style="width: 754px; color: #534E4E;">
+                <div class="like1">
+                    <h3>Переоцененный сериал</h3>
+                    <p style="font-size: 16px;">Думаю, самое время сказать, что в мире существует три неразрешимых дилеммы: - глобальное потепление; - наследие колониальной риторики; - почему Аркейн получает хорошие отзывы. И, нет, поймите меня правильно, пафос здесь вполне оправдан.
+<br>
+                        
+                       <br>
+                       Симптом глобальной болезни, захватившей индустрию медиа в последние годы, как бы громко это ни звучало.
+                       <br>
+                        Аркейн, если посмотреть на него взвешенно, похож на сельскую модницу, посмотревшую пару фото из журналов и решившую, что может не хуже. Эдакое все.
+                    </p>
+                </div>
+                    <div class="rate1">
+                        <a href="">
+                            <div class="box4" style="margin-left: 30px;">
+                                <p style="font-size: 13px;">Оценить отзыв</p>
+                            </div>
+                        </a>
+                        <a href="">
+                            <div class="box5" style="margin-left: 320px;">
+                                <span><img src="images/Rectangle 20.png" alt="" style="float: left; border-radius: 70px; width: 44px; height: 30px; margin-top: -3px;"></span>
+                                <span><p style="font-size: 10px;">Полезно</p></span>
+                                <p style="font-size: 10px; color: #534E4E; margin-top: -7px;">430</p>
+                            </div>
+                        </a>
+                        <a href="">
+                            <div class="box5"  style="margin-left: 80px;">
+                                <img src="images/Rectangle 21.png" alt="" style="float: left; border-radius: 100%; width: 42px; height: 37px; margin-top: 7px;">
+                                <p style="font-size: 10px;">Нет</p>
+                                <p style="font-size: 10px; color: #534E4E; margin-top: -7px;">2155</p>
+                            </div>
+                        </a>
+                    </div>
+                
+            </div>
+
+        </div>
+    </main>
+    <footer>
+        <div class="soc">
+        <div><a href=""><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAtCAYAAAA6GuKaAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC+UlEQVR4nO1ZTWsTURQdjaLVhR9/Q6Muq1u1P6Ci3VZaXNn+hWyFiLsqUSHtpBE8Z8aULLINqPEXiKjrWkFsN0ZooWXkmtfy8pzJfE8t5MJjYPLeeYc7955374tljW1sYzt6BmCC5A2S0wAeJB0crL8ueHmSvUaSAH6T9LIaGOCJXcmSbAnAE5J7WZLlv2MPQFX2y4JwO2eynuH5tVTElYdN0J8kawAW0sQ0Buufk9z02aOaJoaHQgLAMoBzib3gY4JH0jaI7wIoW3ENgGMSjg0yGr8seU3yKYCLJnEAr2MBttvtM7pKSEhk7WGSnzSSS61W67wRKv1Ycij6aXyuWtga27bPApgB0ADQA/BVPRsk74kjDNI/TK+SfKHv67ruZGTSjuPcMT7Vw6C5nucdU4fF9xBV2AAwrzlmRogD+Ejyknq3YKybjkwawKyx4azfvHq9fhrAq5iS1uh0OqfS7JuYtHiYZDOA2Lby7HYQceswSKuQMMm8dRznVrfbPSFz5AngNsl3PnPnCiUtSecTw0uVSuV4AF5JpM2Y/81MzlxJqyQa8nAQYZ04gPcG8buFkfY5wW5GwSU5ZaxbKZL0Bz3p9mM4zGq12kmSO9raXpGkv+j6GxnY+ou9oWF/LpL0kfS0rf8uMpckpmEUYYWqh+hwWOGOgXr0Dk09VBWox6anSszSCMLPjPnrheq0mjPvc8qJDk9J7GoxLCFxkAMhmPmSVvMaAYXRjvoSB0nHEbFcKGmp1kYQDxoruVR5cepptdmc1BIhZNcB3A/BSVVPD3Uu0jWHrZGkEjUQT0psq85FnsvyPkrrRPJl4s5FXX31NYDNrHtE05rN5gWSW9qev6TJsOKYuqrSP5Vt5WgkV1N142Ku6171uQqzpWvOwcOrxj67ruteTgRI8rFPQm2prnkx5a3posLRQ2Lfy48Se0GdZGsxJS3teJPVJWS1gFvTXfFwasIG+bIkh6EqWYy+4CaO4YjkJ0Q/s/gnwHXdydiyNraxjc36L+wPy9JwUx52LhgAAAAASUVORK5CYII=" height="45px" width="45px"></a></div>
+        <div><a href=""><img style="margin-left: 50px; margin-right: 50px;" src="data:image/png;base64,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" height="45px" width="45px"></a></div>
+        <div><a href=""><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFBUlEQVR4nO1aW4gcVRBtE5OAbxMVfEaNgZBoECQ//ihRo4moyRoN5kt8YfDDH82aDx3FjVlBUFCRwS9nmW09597ZdaKbgOAooqKiUUSiJD/RgJjHGt9xSRypmWq9NNM93T09M/uxBReW7rqn6sy9t6pu9XrejMzI9BYAp5BcDWAYwHaS35KcJDmlYxLAbgBVktsA3CRzvOkg9Xr9BHGeJAAcJVlPOf4i+bqQEiyvHwJgPYCvHKeOAfiQ5BDJAQBLy+XymcVicY4M+ZvkMn23leRHMieYD+BLAOt6SeAyAO84BPYBeHR0dPS8DFjnA9hM8nuH0E5jzKXd8f5/wxsB/KoGfwJwn/zaOeDOBfAAyYNK6BcAG7wunYUhZxVKslXytgNgPsmyY+epvEm8rMB/k7zH67KguTpTavPFXECdlfjdGHNjLqDJ7K4G8EcuKyNnIliJPEj4vr9I84fg3kXyDpKrAFwF4Oywvob2YGXu7CQ6NQ52J9tJzhKAJ9zIFDUAXBmxzeT9kUzRzAmxpawkrLUrSO53nP2R5A490GVNpLVgC6EFEREnAOxIS2J9EGKzRidjzBKSvynO+ySvjtIluSuOSKVSWeCE5tsSR6kgY0ueyEJCMT5XjNFarXZinH47IiIkH1SdLxKVM3rAGhk7a7KTAxxglEqlk8Pvy+XyWSSvNcZcL4Pk3nZE0EyaP4heosAj+1ZBN2choRivRWEA2BJVYCKGiM59THX9WAfGx8dP1Yr0WJbaySGyRw0uDzmyQZ9PSYEpAcUdvu8visP1ff9CksdJ/lmtVk9qu63ESFYSsgWC3ANgdujdZ/ruoaz4JD9RjFVxTgyr0lBWQ9bac4KI14LgcV2NzBcqktvUx2cilfRmJ0oDWQ3J9lCMve5za+0F+nx/Vmw3NZB804sSkt+p0jIvo0hFoBh7WuQVWandXgdirb28LQ7Jw6o0f7oSKTdDt+AfjFTSMl2MzU0CaoxZqw0GdxyJI6LX28lWw1q7op3NiYmJeerj0TgijUozaSKUijSmCIwiEjkqlcqCNFExzjH5ZepjY2NnpCECYExqMncAOD3kwOywjuotVccOpLhFis1DcY5JL6ouByolkTeS6Ec4tlKJfJBQ/wrV/ybOsbfUsXU9JLJJHXs1oc0BtVmNA93aNtm0JiLV8qA75ELUohQfbKFXU5uPJLT5rOo/HUfkZnXs414fdmPMLWlKlNgKWEpuua0B+EeaZwlAl2uv979BstgmjxwKz5FhrT23nT2pDsQ3aYTEFo3qHDupt7qZEKkdnURnEsANwWU/HEL7SWRkZOQ0AD8rxsqk19Sv0xzAXhBhMzgI7q40ztzqtGAW9puIbVbOjWQtd6ZM7SAA7xYKhVn9IlIoFGaRfE/n7vTSiu/7FzsNusF+EQGwJdgdctVNM9c1vlZDsYxNvSYC4F65VWrIzdYyDUQayOqYAN7dKyIk71cCgvVkJxxc0BccMsNxZX6nRIrF4hz9WBqQeC4XEo6DDwfg0g0Rh/MmAuAS/Q5ZV1v5rERYjDG3B0lJekuyUuHSIgsR6aGRfN75HjLZSQMkKZmFTrelQQjASwCukctTGiJytQXwitt5BLAdwEVdJRFybA2AT0NV7GEAb7epfg9oS3WfO1ewjDFrvH6JrsSIk3PSlPHy2aEkDW1vugiaTYHrSD5OshL+KGOMWaz/wmHlC5YUfkm7NTMyI17/5F+U6FI9TdrgNQAAAABJRU5ErkJggg==" height="45px" width="45px"></a></div>
+    </div><br>
+    <div class="quest">
+        <div style="width: 191px; margin-left: 50px;"><p style="font-size: 15px;">Вопросы, жалобы?
+            supportMTC@247.com</p></div>
+            <div style="width: 280px; margin-left: 70px;"><p style="font-size: 15px;">Телефоны, контакты: <br>
+                +7 767 639 6294; +7 776 723 6342</p></div>
+    </div><br>
+
+
+    <div class="footer1">
+        <p style="font-size: 12px; width: 210px; margin-top: 50px;">© 2003 - 2023, Movie, The Creators</p>
+        <div class="footer2">
+        <a href="">
+            <div class="box6" style="margin-right: 62px;">
+                <span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAfCAYAAAAfrhY5AAAACXBIWXMAAAsTAAALEwEAmpwYAAADnklEQVR4nO1WS2iUVxT+jkZUJs65/8REfL+KC6VBaikVquJjoyio6MK1UgtduPKBLeJKClLpY1G6EANFSVBaX1EExVWhoChuFJVSilqxhmTm3JlJfP5y/txJ//xzryUkLoRc+Bnmnnu+77zvBUbX+7BioCEGxmf2Juj+OyO1jDVi6JIwVYXp+7RMmH4Upl4xdLVksH5EiSXCF2LolTUUu6+n5n08AxMtU6kmE0Ov9fyIEPcw5qhXKWJHghUqt4zV9TJ6Vsxj/rDJrcGuLLgj/0rlYnDAK2fsGRJRDJAwtYnBsnQ+/eD0Sz85tfuNo28HMCJ8JoY6YmBMkLzE2O2AHxTzKDjFfT5wa+gPR34j4PneBHMSmoTpYXqvbpUnY6plsimAU7pvGSsD5H+pXJgeBdKyPJEb6hjYV/wcptSRaw491u+IgXHWUFcdAVPRkVc9IX8SA2OF8bnHqP115NbQbx4CqRQwQwwd9hC8joGcNypMh6oRZmUiWftO1nvO1BYAOq1AYqgvK+thGE8hVisFTLdMZwPpOlrveYRtgcMa/k061bL7cTMaPRE5LIwtISzL2DpAqjl1v2PE0JVAWz0sMuZpGgaRAxMzUbLFPD4Qpn8C7Xe51m7JhNR5bQ1901VA/mkTJlmmMwEDvrOMgymgl64Y08X0dWguaBqU44lGi3FQDUHNSmF6LHnsVEDtRwXPWP3c5rDIMt1xe139rThQVPdtDq3JuUxhqnPqqTX40hr61/E9QgqsZuHtcoS1ZcZHYuhaxoNTOtMd4D1XqH+rrBxhnRZnJlq3ShGWlgw2WEN3szJYpp8CYe6URixMpp7LtZJWGEusoWOpCXdTmE4U8/gk3aKJXoQPXVp9+T+CaoSZ6SsxG2qd0XqzaeiS243ptI5ebU1H3m5zaLFM51zIf+6bjAXaHWLoRaDqu3Wiuh7HRl8fp6tdGJt7GHP1QrEGrdrjqtsdgfW/MB3v7whsDVW7w+qte3AkOWa6+BZrNZxnNFLZGaHtUzWYbZnOB0k1ikydZcZihJa2gx7Q3Ka/5IJhrJICFvr0NNR6Rq/PtJ46pRHRNg6SxkCDNfSrq/4/XUt0p59PwnSh0oRpPn0dqeni0tdMos/0OMFjuq3dEnxoqtWWqewrEGFsD1r+nwOks0LfeJ5cV0oFfPpWgEoeH1um312Oy8L0gzSi+f+IBznRiGbVqzkihq5rCoYEEAMTMIyVvGxzaBkOxujCSK83iAObAKjqhtEAAAAASUVORK5CYII=" style="float: left; margin-left: 5px;"></span>
+                <span><p style="font-size: 10px;">Загрузить</p></span>
+                <p style="font-size: 10px; margin-top: -7px;">В Appgallery</p>
+            </div>
+        </a>
+       <a href="">
+            <div class="box6" style="margin-right: 62px;">
+                <span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAfCAYAAAAfrhY5AAAACXBIWXMAAAsTAAALEwEAmpwYAAAEP0lEQVR4nO2X3U9bdRjH64WJxhidGZLNxHhpdGMdBdrSlsIQetqe02qULTMbjJhtybkxMVEXo4RZ/oAZLwyUOEUHC4nGl82xjTJGoZRS6BunLbDyctCZCBsvbdfRlX7NrwcYDgbyeqNPcq4/3/N8nt9zfkck+r+WFO2vLma4r4ynnNVPinay1J6oTOOx+t4K1uDtfvPAO4O1JTsGz3fFTuf1REF5232HB7/GkdB5HB36xnJsqO7A9sM9MTavNwqlIwKt1+Z/d+hbHBv5DsdHvp8r5S/UvReqT99WuNp1D8ruCHLtYei9Xf6y0Qs4MdaA8rEGnODrw+VjDZVlw+ef2nq4L8bmu+9B5YwitysMWccMaG+Xn4D/8fD1fPnYxVIR8MSWwQsJ3BMD8a5wRCC3zSCnbRp6zwoBhBCdZWMXZVsD98fYAm8M6l6h9fLOMKTWaWS1TkHvtvvL+frkCgGS5Xx94/E/Gl/eFLzIH2cP+WIg3lXd0ZR3afsMsm9OIdMyCa3rMQGEeYiSeSjhG5/eMLyw7z4WvCvmvWe3TUPSMgnxtbugem2PDUAec//7LejedRQQrW8eioJxtpC7j4JHvVunIbkxhYPX7yKj6Q40zpUDnAuecSftzwPdLwDO3Q640hT/Gk4F4+wb/lks894ueM9snsSBq3ew7/IEihz2vqUBzgU+cidtz2ER3rMbcKUl4X2xEYH0V9aGD8TZosAsFr07l3snrd//2wRe+2UchXYhwBcEbH0Wy+DuNMCbDvTtmQG3t3BteHAWi95J67siKe85C95J669M4PVfx/HqT3/hy4YKe7L1GawK5/YAgb0/rgkvDsax6H1+1cpt4ZT3LOK9WfC+79I4qj6s5voLjBg7qfAl29Z488BLBavDQ3FW0x8H8X6IeF9YtUu9WwTvVR9Xc361AYF8I4IFRoyeVPqSHZtwrgslWGogDsH7wyNHvKeO3Lx3AvblGdCXZwCnNsCfb0Aw34jRUypfsnOD064bTrDU4AMUL3hfOHLE+/yqNZ2p4VxKBm4VA6+KQSqEWghBunD7A6kFjl1H1n3O6eEEq731AMWk9Y967wzD9Ek158yl0aNg0Ktg4FYy8KRCGOBTGSKcmqnkZSUb23A0n2B1oQQ0A8u9mz6t4ewyGg45je5cGoshlEzSraQb+xT05nY7TeBDCZDWL/Vu+szMdUj1sEn1sMv06JILIRxy2u5UMFvzVaN5sPrhBKhbD71/XlHLtWXrYM3RoT1HDyGEjrfL9KUQrdPrakX/DpYemYM2JHg3VZi5FokWrVk63MzSoS1bF7FmaytvqNVbf5MxEvjoHEjrTWdruesHtWjO1MIioeZaMrV1zVJm++5wxts4zfBzqKo0e5vEFK6KKVwTU5YmcfH2317f/BM5VWfN3ksZGlzOoAauiKmdu7eT+kGsLfp5v8bolEh29o9F9F+pvwHoVhhxYwm0sgAAAABJRU5ErkJggg==" style="float: left; margin-left: 5px;"></span>
+                <span><p style="font-size: 10px;">Загрузить</p></span>
+                <p style="font-size: 10px; margin-top: -7px;">В Play Market</p>
+            </div>
+        </a>
+        <a href="">
+            <div class="box6">
+                <span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAADPklEQVR4nO2ZS0gWURTHR80k0RCCokUrIbJCaNMmqEVPeyBmUtQukKg0hVzUpk3ZIgyCAl31gKJolbtaRESrFkEUlj0JkzYFhiFlr18cPQOX24xznZlvvhG+/0bwnnvO/3/n3nPPPZ/nlVBCCYkBzAf2AbeAN8AEhcME8Fpj7ZXYaYnYA7yneHgH7E4ioALoMxw+BTqAFUB1KqsUHLcaaAA6NaaPc0B5HIe+iO9AeywnCQGUA4eAH76Y2TpoNUSsLxhTdz4bDDEtsznYsi8F7V5OABxWTm+dEoBmCv9MZL6dIs7sM+XW5jLhphp3RhqH+ygD6qz/VQI1cX0KgC7ldsOLAvBKjRsijYPnLzayzT3NQmuAT8AfYCCOXwGwSv0Oe1EAvqlxrNUDTlj3wHljS5BwkWp1/riL8RTiBNL5R5gZf4FlCfxPIT3D8PmylT4QjitxfWcqRH1IXRaEcWDpnBEiAB4ECOnxEoKMv4ik34eWCKmaq5L4LYaQAwFfY5uOlc0JIUANMGqJGDTumItxfWct5KwlQoq9eh3r1/S7LtdCgHqjSvXRa6Rl/2X5JG4dR0ZCBi0Ro36FADRaY+25FAJs/u94w35jfLk19gVYlCshTL9hhi2ij8wMBczTwtHEhbwJ6bEI/paKN8DupGX3SyraXAgBlgBfLYL9IbZV2uoxcT9TIcCOgPvBFSPAavXT7DjnI9BUCCHiOAmkD7BAfd11nDOSRyH4jTbtjf0slpCmFMR0GP76okSg9VmqQtKGPlvtdHw7NX5ZCdFYBwO+xJZU+EUZAiuBIa2b5O/2hC3Rx5aQ53J5ZiFkICAbVSQQs1bbRCaa0hAi72pBraMQt17szDEvWz63htgtnE07yG/QBZYO0srROkqKvlNJRRgH/w7wGbgUVuLLparcXro4va7G3V7OABxXbtdcjNuMQxd77xeoiT2k3FpdJlQahd1RLycAjikn2fqVrpOa9W09CWwsOMtoPpuUi3DaGbeJMKm/52W+zZh+jHUZddmZuJdVr66C4IU+oBrt3z7SBFCnMXo0JsrhdKKeGLDLSMnFwLC8hdJaJUkALZL2NHOMFZD4mMa4qjFDy5USSijBc8Y/nzAcziLpHlgAAAAASUVORK5CYII=" style="float: left; height: 36px; margin-top: -3px; margin-left: 5px;"></span>
+                <span><p style="font-size: 10px;">Загрузить</p></span>
+                <p style="font-size: 10px; margin-top: -7px;">В Appstore</p>
+            </div>
+        </a>
+    </div>
+    </div>
+
+
+</footer>
+</body>
+
+</html>
